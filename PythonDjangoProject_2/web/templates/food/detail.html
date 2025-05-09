@@ -1,0 +1,21 @@
+{% extends 'main/main.html' %}
+{% block content %}
+<div class="wrapper row3" id="foodApp">
+  <main class="container clear">
+      <table class="table">
+
+      </table>
+  </main>
+</div>
+<script>
+    let app=Vue.createApp({
+        delimiters:['[[',']]'],
+        data(){
+            return {
+                fno:{{fno}}
+                detail:{}
+            }
+        }
+    }).mount("#foodApp")
+</script>
+{% endblock %}
