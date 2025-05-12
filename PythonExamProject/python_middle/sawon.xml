@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sawon>
+    <list name="홍길동">
+        <sabun>1</sabun>
+        <dept>개발부</dept>
+        <job>대리</job>
+        <etc year="2022" pay="3500"/>
+    </list>
+    <list name="심청이">
+        <sabun>2</sabun>
+        <dept>기획부</dept>
+        <job>사원</job>
+        <etc year="2025" pay="3000"/>
+    </list>
+    <list name="강감찬">
+        <sabun>3</sabun>
+        <dept>영업부</dept>
+        <job>과장</job>
+        <etc year="2020" pay="4500"/>
+    </list>
+</sawon>
