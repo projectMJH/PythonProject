@@ -71,9 +71,9 @@ print(np.sum(arr,axis=1))
 print(np.sum(arr,axis=(0,1)))
 
 emp=pd.read_csv("c:/pydata/EMP.csv")
-"""
-print(emp)
 
+print(emp)
+"""
 s=pd.read_csv("c:/pydata/subway.csv")
 print(s['지하철역'])
 print(s.describe())
@@ -90,18 +90,24 @@ print(emp[['EMPNO','ENAME','SAL']][emp['SAL'].between(1000,3000)])
   SELECT empno,ename,sal
   FROM emp
   WHERE job in ('CLERK','MANAGER')
-"""
-print(emp[['EMPNO','ENAME','JOB']][emp['JOB'].isin(['CLERK','MANAGER'])])
 
+print(emp[['EMPNO','ENAME','JOB']][emp['JOB'].isin(['CLERK','MANAGER'])])
+"""
 """
   SELECT empno,ename,sal,comm
   FROM emp
   WHERE comm isnull()
-"""
+
 print(emp[['EMPNO','ENAME','SAL','COMM']][emp['COMM'].isnull()])
 
 print(emp['ENAME'])
 emp['ename_two']=emp['ENAME'].apply(lambda x:x[1])
 print(emp[['ENAME','ename_two']])
+"""
+
 # ename LIKE '_M%'
-print(emp['ENAME'])
+print(emp[['ENAME']][emp['ENAME'].apply(lambda x:x[1]=='M')])
+# ename LIKE 'K%'
+print(emp[['ENAME']][emp['ENAME'].apply(lambda x:x[0]=='K')])
+# ename LIKE '%T'
+print(emp[['ENAME']][emp['ENAME'].apply(lambda x:x[-1]=='T')])
