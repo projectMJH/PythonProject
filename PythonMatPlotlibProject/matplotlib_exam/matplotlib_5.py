@@ -160,11 +160,35 @@ plt.figure(figsize=(10,5))
 ax=sns.countplot(x='makes',data=df[df.recall_month.isin([10,11,12])],palette="Set2")
 plt.xticks(rotation=90)
 plt.show()
-"""
+
 # 6) 7월 이후
 plt.figure(figsize=(10,5))
 ax=sns.countplot(x='makes',data=df[df.recall_month>=7],palette="Set2")
 plt.xticks(rotation=90)
 plt.show()
-
+"""
 # 7) 리콜 사유 => WordCloud => 제외하는 문자열 STOPWORDS
+# print(df['case'])
+# 제외하는 글자
+set(STOPWORDS)
+swords=set(['동안','인하여','있는','있습니다','기능성이','가','에'
+             ,'이','오류로','수','인해','시','및','경우','내부'
+             ,'않을','않아','이로','제대로'
+            ])
+text=''
+# 중복 제거
+for word in df.case.drop_duplicates():
+  text+=word
+#print(text[:100])
+font_path="c:/pydata/NanumGothic.ttf"
+# 뉴스 / 댓글분석 => 데이터마이닝 기본
+# Konlp => 명사 추출후 출력이 가능
+wc=WordCloud(max_font_size=200,background_color="white",
+             width=800,height=800,font_path=font_path,
+             stopwords=swords)
+wc.generate(text)
+plt.figure(figsize=(10,8))
+plt.imshow(wc)
+plt.tight_layout(pad=0)
+plt.axis('off')
+plt.show()
